@@ -1,0 +1,17 @@
+module Languages
+  PYTHON = "Python"
+  DJANGO = "Django"
+  RUBY = "Ruby"
+  RAILS = "Rails"
+  HTML_CSS = "HTML/CSS"
+  JAVASCRIPT = "JavaScript"
+  PHP_MYSQL_WORDPRESS = "PHP/MySQL/WordPress"
+  FUNDAMENTALS = "Fundamentals"
+  USER_EXPERIENCE = "User Experience"
+  DESIGN = "Design"
+  ANDROID_JAVA = "Android/Java"
+  IOS = "iOS"
+  COMPUTER_SCIENCE = "Computer Science"
+  GIT = "Git/GitHub"
+  OTHER = "Other Topics"
+end
