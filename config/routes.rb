@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resource :users
-  resource :reviews
-  resource :curricula
+  resources :reviews
+
+  resources :materials
+
+  resources :users
+
   resource :sessions, only: [:new, :create, :destroy]
 end

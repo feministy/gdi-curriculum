@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @material.title
+%p
+  %b User:
+  = @material.user_id
+%p
+  %b Url:
+  = @material.url
+%p
+  %b Chapter:
+  = @material.chapter
+%p
+  %b Status:
+  = @material.status
+%p
+  %b Description:
+  = @material.description
+%p
+  %b Language:
+  = @material.language
+
+= link_to 'Edit', edit_material_path(@material)
+\|
+= link_to 'Back', materials_path
