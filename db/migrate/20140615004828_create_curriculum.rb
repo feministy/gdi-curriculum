@@ -1,6 +1,6 @@
 class CreateCurriculum < ActiveRecord::Migration
   def change
-    create_table :curriculums do |t|
+    create_table :curricula do |t|
       t.string :title
       t.integer :user_id
       t.string :url

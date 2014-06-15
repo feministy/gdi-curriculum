@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  namespace :api do
-    namespace :v1 do
-      resource :users
-    end
-  end
+  resource :users
+  resource :reviews
+  resource :curricula
+  resource :sessions, only: [:new, :create, :destroy]
 end
