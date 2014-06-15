@@ -13,6 +13,10 @@ select {
   font-size: $form-font-size;
 }
 
+select {
+  display: inline;
+}
+
 label {
   font-weight: bold;
   margin-bottom: $base-line-height / 4;
