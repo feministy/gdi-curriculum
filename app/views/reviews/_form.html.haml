@@ -1,4 +1,4 @@
-= form_for @review do |f|
+= form_for [@material, @review] do |f|
   - if @review.errors.any?
     #error_explanation
       %h2= "#{pluralize(@review.errors.count, "error")} prohibited this review from being saved:"
@@ -7,19 +7,49 @@
           %li= msg
 
   .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .field
-    = f.label :material_id
-    = f.number_field :material_id
-  .field
     = f.label :experience
-    = f.text_field :experience
+    = f.select :experience, Levels.for_select
   .field
     = f.label :recommendation
-    = f.text_field :recommendation
+    = f.select :recommendation, Statuses.for_select
+
+  %h3 Requirements
+  .field_inline
+    - ReviewCriteria.requirements_checkboxes.each do |req|
+      %p
+        = check_box_tag req[:label]
+        = label_tag req[:label], req[:description]
+
+  .field
+    = f.label :required_notes, 'Notes on required metrics'
+    = f.text_area :required_notes
+
+  %h3 Recommendations
+  .field_inline
+    - ReviewCriteria.recommendations_checkboxes.each do |rec|
+      %p
+        = check_box_tag rec[:label]
+        = label_tag rec[:label], rec[:description]
+
+  .field
+    = f.label :recommended_notes, 'Notes on recommended metrics'
+    = f.text_area :recommended_notes
+
+  %h3 Above and beyond
+  .field_inline
+    - ReviewCriteria.optionals_checkboxes.each do |opts|
+      %p
+        = check_box_tag opts[:label]
+        = label_tag opts[:label], opts[:description]
+
+  .field
+    = f.label :optional_notes, 'Notes on above and beyond metrics'
+    = f.text_area :optional_notes
+
+  %h3 Additional notes
   .field
     = f.label :notes
     = f.text_area :notes
+
   .actions
     = f.submit 'Save'
