@@ -1,6 +1,7 @@
 module Statuses
   def self.list
     [
+      pending_review,
       "Approved for core",
       "Conditional approval, pending adjustments",
       "Not approved for core"
