@@ -27,3 +27,5 @@ gem 'debugger', group: [:development, :test]
 gem 'database_cleaner', group: :test
 gem 'faker', group: :test
 gem 'factory_girl_rails', '~> 3.6.0', group: :test
+gem 'better_errors', group: :development
+gem 'binding_of_caller', group: :development
