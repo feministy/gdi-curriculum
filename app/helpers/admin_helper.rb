@@ -7,6 +7,10 @@ module AdminHelper
     is_admin? && !reviewed_by?(current_user, material)
   end
 
+  def is_admin?
+    current_user && current_user.admin?
+  end
+
   def reviewed_by?(user, material)
     user.reviews.any? && user.reviews.pluck(:material_id).include?(material.id)
   end

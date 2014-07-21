@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_material
+  before_action :check_user, :set_material
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   include ReviewsHelper

@@ -1,3 +1,8 @@
+%h1 Log In
+
+- if flash[:error]
+  %p.flash-error= flash[:error]
+
 = form_tag sessions_path do
   - if @user.errors.any?
     #error_explanation
