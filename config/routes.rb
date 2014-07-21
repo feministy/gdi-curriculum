@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :reviews
-
-  resources :materials
+  resources :materials do
+    resources :reviews
+  end
 
   resources :users
   get '/users/:id/reviews', to: 'users#reviews', as: 'user_reviews'
