@@ -1,21 +1,11 @@
-%p#notice= notice
+%h1
+  Review for
+  = @review.material.title
 
-%p
-  %b User:
-  = @review.user_id
-%p
-  %b Material:
-  = @review.material_id
-%p
-  %b Experience:
-  = @review.experience
-%p
-  %b Recommendation:
-  = @review.recommendation
-%p
-  %b Notes:
-  = @review.notes
+%br
 
-= link_to 'Edit', edit_material_review_path(@material, @review)
-\|
-= link_to 'Back', material_reviews_path(@material)
+= render partial: 'shared/comment', locals: { review: @review }
+
+- if owns_review?(@review)
+  = link_to 'Edit', edit_material_review_path(@material, @review)
+
