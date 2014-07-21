@@ -38,7 +38,13 @@ var ready = (function() {
     $(".nav .more").removeClass("active-nav-item");
   });
 
-  $('#materials').tablesorter();
+  $('#materials').tablesorter({
+    headers: {
+      6: {
+        sorter: false
+      }
+    }
+  });
 });
 
 $(document).ready(ready);
