@@ -1,31 +1,39 @@
 module Chapters
-  ANN_ARBOR = "Ann Arbor"
-  AUSTIN = "Austin"
-  BALTIMORE = "Baltimore"
-  BOISE = "Boise"
-  BOSTON = "Boston"
-  BOULDER_FORT_COLLINS = "Boulder / Fort Collins"
-  BUCKS_COUNTY = "Bucks County"
-  BUFFALO = "Buffalo"
-  BURLINGTON = "Burlington"
-  CHICAGO = "Chicago"
-  COLUMBUS = "Columbus"
-  CINCINNATI = "Cincinnati"
-  DALLAS_FORT_WORTH = "Dallas / Fort Worth"
-  WASHINGTON_DC = "Washington DC"
-  DETROIT = "Detroit"
-  KANSAS_CITY = "Kansas City"
-  LOS_ANGELES = "Los Angeles"
-  MIAMI = "Miami"
-  MILWAUKEE = "Milwaukee"
-  NEW_YOK = "New York"
-  OTTAWA = "Ottawa"
-  PHILADELPHIA = "Philadelphia"
-  PITTSBURGH = "Pittsburgh"
-  RALEIGH_DURHAM = "Raleigh / Durham"
-  SALT_LAKE_CITY = "Salt Lake City"
-  SAN_FRANCISCO = "San Francisco"
-  SEATTLE = "Seattle"
-  TOLEDO = "Toledo"
-  TRI_CITIES = "Tri-Cities"
+  def self.list
+    [
+      "Ann Arbor",
+      "Austin",
+      "Baltimore",
+      "Boise",
+      "Boston",
+      "Boulder / Fort Collins",
+      "Bucks County",
+      "Buffalo",
+      "Burlington",
+      "Chicago",
+      "Columbus",
+      "Cincinnati",
+      "Dallas / Fort Worth",
+      "Washington DC",
+      "Detroit",
+      "Kansas City",
+      "Los Angeles",
+      "Miami",
+      "Milwaukee",
+      "New York",
+      "Ottawa",
+      "Philadelphia",
+      "Pittsburgh",
+      "Raleigh / Durham",
+      "Salt Lake City",
+      "San Francisco",
+      "Seattle",
+      "Toledo",
+      "Tri-Cities"
+    ]
+  end
+
+  def self.for_select
+    list.sort_by(&:downcase).map { |c| [c, c] }
+  end
 end

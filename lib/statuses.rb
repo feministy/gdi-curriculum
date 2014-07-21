@@ -1,6 +1,17 @@
 module Statuses
-  APPROVED = "Approved for core"
-  CONDITIONAL = "Conditional approval, pending adjustments"
-  PENDING = "Pending review"
-  REJECTED = "Not approved for core"
+  def self.list
+    [
+      "Approved for core",
+      "Conditional approval, pending adjustments",
+      "Not approved for core"
+    ]
+  end
+
+  def self.for_select
+    list.map { |s| [s, s] }
+  end
+
+  def self.pending_review
+    "Pending review"
+  end
 end
