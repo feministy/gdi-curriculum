@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    redirect_to root_path, :flash => { :error => "You cannot edit another user's account." } unless is_admin? || current_user == @user
   end
 
   # POST /users
