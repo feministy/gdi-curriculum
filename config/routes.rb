@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/materials/core', to: 'materials#core', as: 'core_materials_path'
+  get '/materials/core', to: 'materials#core', as: 'core_materials'
   root 'materials#core'
 
   resources :materials do
