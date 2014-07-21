@@ -8,6 +8,10 @@ module AdminHelper
   end
 
   def reviewed_by?(user, material)
-    user.reviews.any? && user.reviews.pluck(:materials_id).include?(material)
+    user.reviews.any? && user.reviews.pluck(:material_id).include?(material.id)
+  end
+
+  def user_review_for(material)
+    Review.where(material_id: material.id, user_id: current_user.id).first
   end
 end

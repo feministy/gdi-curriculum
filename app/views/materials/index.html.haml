@@ -4,23 +4,27 @@
   %thead
     %tr
       %th Title
-      %th URL
+      %th Materials
       %th Chapter
-      %th Status
       %th Language
+      %th Status
+      %th Reviews
       %th
 
   %tbody
     - @materials.each do |material|
       %tr
         %td= material.title
-        %td= material.url
+        %td= link_to 'View', material.url
         %td= material.chapter
-        %td= material.status
         %td= material.language
+        %td= material.status
+        %td= material.reviews.count
         %td
           - if can_review?(material)
             = link_to 'Review', new_material_review_path(material)
+          - elsif reviewed_by?(current_user, material)
+            = link_to 'View review', material_review_path(material, user_review_for(material))
 
 
 %br
