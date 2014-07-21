@@ -37,6 +37,8 @@ var ready = (function() {
     $(this).addClass("active-nav-item");
     $(".nav .more").removeClass("active-nav-item");
   });
+
+  $('#materials').tablesorter();
 });
 
 $(document).ready(ready);
