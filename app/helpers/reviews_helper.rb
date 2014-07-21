@@ -5,8 +5,12 @@ module ReviewsHelper
     set_optionals(review, criteria[:optionals].keys)
   end
 
-  def set_user(review)
-    review.user = current_user
+  def set_material(review, material)
+    review.material_id = material.id
+  end
+
+  def set_optionals(review, optionals)
+    review.optionals = optionals if optionals.any?
   end
 
   def set_requirements(review, requirements)
@@ -17,7 +21,7 @@ module ReviewsHelper
     review.recommendations = recommendations if recommendations.any?
   end
 
-  def set_optionals(review, optionals)
-    review.optionals = optionals if optionals.any?
+  def set_user(review)
+    review.user = current_user
   end
 end

@@ -30,6 +30,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     set_criteria(@review, params[:criteria])
     set_user(@review)
+    set_material(@review, @material)
 
     respond_to do |format|
       if @review.save
