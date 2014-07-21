@@ -16,6 +16,6 @@
   %b Notes:
   = @review.notes
 
-= link_to 'Edit', edit_review_path(@review)
+= link_to 'Edit', edit_material_review_path(@material, @review)
 \|
-= link_to 'Back', reviews_path
+= link_to 'Back', material_reviews_path(@material)

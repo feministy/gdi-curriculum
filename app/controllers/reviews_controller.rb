@@ -2,6 +2,8 @@ class ReviewsController < ApplicationController
   before_action :set_material
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
+  include ReviewsHelper
+
   # GET /reviews
   # GET /reviews.json
   def index
@@ -26,10 +28,12 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
+    set_criteria(@review, params[:criteria])
+    set_user(@review)
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to material_review_path(@material, @review), notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -43,7 +47,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html { redirect_to material_review_path(@material, @review), notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit }
@@ -74,6 +78,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:user_id, :material_id, :experience, :recommendation, :notes)
+      params.require(:review).permit(:material_id, :experience, :recommendation, :notes, :recommended_notes, :required_notes, :optional_notes)
     end
 end
