@@ -30,6 +30,11 @@ label {
   }
 }
 
+.field_inline label {
+  display: inline;
+  font-weight: normal;
+}
+
 textarea,
 #{$all-text-inputs},
 select[multiple=multiple] {
