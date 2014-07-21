@@ -15,6 +15,10 @@ module AdminHelper
     current_user == material.user && material.reviews.empty?
   end
 
+  def owns_review?(review)
+    is_admin? && review.user == current_user
+  end
+
   def reviewed_by?(user, material)
     user.reviews.any? && user.reviews.pluck(:material_id).include?(material.id)
   end
