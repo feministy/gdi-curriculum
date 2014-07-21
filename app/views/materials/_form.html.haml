@@ -16,7 +16,7 @@
   .field
     = f.label :chapter
     = f.select :chapter, Chapters.for_select
-  - unless @material.new_record?
+  - if can_update_status?(@material)
     .field
       = f.label :status
       = f.select :status, Statuses.for_select
