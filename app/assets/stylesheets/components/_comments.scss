@@ -9,9 +9,9 @@
 
   display: table;
   width: 100%;
-  margin-bottom: $base-line-height;
-  padding-bottom: 1em;
-  border-bottom: 1px solid transparentize($comment-color, .9);
+  margin-bottom: 1.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 10px solid transparentize($comment-color, .9);
 
   .comment-image,
   .comment-content {
@@ -27,7 +27,6 @@
       height: auto;
       border-radius: $base-border-radius;
       padding: $comment-image-padding;
-      background: $comment-background;
       display: block;
       max-width: none;
     }
@@ -55,6 +54,12 @@
       font-size: .9em;
       color: $comment-detail-color;
     }
+  }
+
+  .comment-section {
+    border-bottom: 1px solid transparentize($comment-color, .9);
+    padding-bottom: 1em;
+    margin-bottom: 1em;
   }
 }
 

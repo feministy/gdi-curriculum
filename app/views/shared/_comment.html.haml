@@ -1,9 +1,45 @@
 .comment
   .comment-image
-    %img{src: "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png"}
+    = image_tag 'logo.png'
   .comment-content
-    %h1 First Comment Title or Author
-    %p
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.
-    %p.comment-detail
-      Date or details about this post
+    .comment-section
+      %h1
+        Recommendation:
+        = review.recommendation
+      %p.comment-detail
+        Review by:
+        = review.user.email
+      %h1 Required Criteria
+      %em Criteria met:
+      - if review.requirements.any?
+        = render partial: 'shared/list', locals: { items: review.requirements }
+      - else
+        Did not meet any requirements.
+      - if review.required_notes?
+        %p.comment-detail= review.required_notes
+
+    .comment-section
+      %h1 Recommended Criteria
+      %em Criteria met:
+      - if review.recommendations.any?
+        = render partial: 'shared/list', locals: { items: review.recommendations }
+      - else
+        Did not meet any requirements.
+      - if review.recommended_notes?
+        %p.comment-detail= review.recommended_notes
+
+    .comment-section
+      %h1 Above and Beyond Criteria
+      %em Criteria met:
+      - if review.optionals.any?
+        = render partial: 'shared/list', locals: { items: review.optionals }
+      - else
+        Did not meet any requirements.
+      - if review.optional_notes?
+        %p.comment-detail= review.optional_notes
+
+    %h1 Comments
+    - if review.notes?
+      = review.notes
+    - else
+      No additional comments.

@@ -11,6 +11,10 @@ module AdminHelper
     current_user && current_user.admin?
   end
 
+  def owner_can_edit?(material)
+    current_user == material.user && material.reviews.empty?
+  end
+
   def reviewed_by?(user, material)
     user.reviews.any? && user.reviews.pluck(:material_id).include?(material.id)
   end
