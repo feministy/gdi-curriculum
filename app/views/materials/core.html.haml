@@ -1,0 +1,18 @@
+%h1 Core Materials
+
+%table.table-minimal.tablesorter#materials
+  %thead
+    %tr
+      %th Title
+      %th Materials
+      %th Chapter
+      %th Language
+
+  %tbody
+    - @materials.each do |material|
+      %tr
+        %td= link_to material.title, material_path(material)
+        %td= link_to 'View', material.url
+        %td= material.chapter
+        %td= material.language
+

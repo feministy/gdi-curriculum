@@ -1,9 +1,11 @@
-%h1 New review
+%h1
+  New review for
+  = @material.title
 
-%h2 Review Criteria
+%p
+  %em Everything you type, check, or say in this form will be visible to all GDI organizers.
 
-%p The following categories are our required, recommended, and optional-but-awesome guidelines for Core Curriculum. Please note any relevant details about each category.
+.thick-border
 
 = render 'form'
 
-= link_to 'Back', material_reviews_path(@material)

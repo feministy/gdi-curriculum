@@ -7,13 +7,18 @@
           %li= msg
 
   .field
-    = f.label :experience
+    %h3= f.label :experience
     = f.select :experience, Levels.for_select
   .field
-    = f.label :recommendation
+    %h3= f.label :recommendation
+    %em Don't select core! That's for later :)
+    %br
     = f.select :recommendation, Statuses.for_select
 
+  .thick-border
   %h3 Requirements
+  %p
+    %em Check all that apply.
   .field_inline
     - ReviewCriteria.requirements_checkboxes.each do |req|
       %p
@@ -24,7 +29,10 @@
     = f.label :required_notes, 'Notes on required metrics'
     = f.text_area :required_notes
 
+  .thick-border
   %h3 Recommendations
+  %p
+    %em Check all that apply.
   .field_inline
     - ReviewCriteria.recommendations_checkboxes.each do |rec|
       %p
@@ -35,7 +43,10 @@
     = f.label :recommended_notes, 'Notes on recommended metrics'
     = f.text_area :recommended_notes
 
+  .thick-border
   %h3 Above and beyond
+  %p
+    %em Check all that apply.
   .field_inline
     - ReviewCriteria.optionals_checkboxes.each do |opts|
       %p
@@ -46,10 +57,11 @@
     = f.label :optional_notes, 'Notes on above and beyond metrics'
     = f.text_area :optional_notes
 
+  .thick-border
   %h3 Additional notes
   .field
     = f.label :notes
     = f.text_area :notes
 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save Review'
