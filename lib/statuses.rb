@@ -4,7 +4,8 @@ module Statuses
       pending_review,
       "Approved for core",
       "Conditional approval, pending adjustments",
-      "Not approved for core"
+      "Not approved for core",
+      "Core"
     ]
   end
 
