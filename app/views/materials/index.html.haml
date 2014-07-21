@@ -8,6 +8,7 @@
       %th Chapter
       %th Status
       %th Language
+      %th
 
   %tbody
     - @materials.each do |material|
@@ -17,6 +18,10 @@
         %td= material.chapter
         %td= material.status
         %td= material.language
+        %td
+          - if can_review?(material)
+            = link_to 'Review', new_material_review_path(material)
+
 
 %br
 
