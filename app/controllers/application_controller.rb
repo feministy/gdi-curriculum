@@ -8,5 +8,6 @@ class ApplicationController < ActionController::Base
   include Chapters
   include Languages
   include Levels
+  include ReviewCriteria
   include Statuses
 end
