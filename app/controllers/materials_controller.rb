@@ -25,6 +25,7 @@ class MaterialsController < ApplicationController
   # POST /materials.json
   def create
     @material = Material.new(material_params)
+    @material.user = current_user
 
     respond_to do |format|
       if @material.save
