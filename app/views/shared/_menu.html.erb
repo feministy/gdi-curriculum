@@ -10,6 +10,31 @@
           <li class="nav-link">
             <%= link_to 'Profile', user_path(current_user) %>
           </li>
+          <% if is_admin? %>
+            <li class="nav-link more"><a href="javascript:void(0)">Reviews</a>
+              <ul class="submenu">
+                <li>
+                  <%= link_to 'All Curriculum', materials_path %>
+                </li>
+                <li>
+                  <%= link_to 'My Reviews', user_reviews_path(@current_user) %>
+                </li>
+              </ul>
+            </li>
+          <% end %>
+          <li class="nav-link more"><a href="javascript:void(0)">Curriculum</a>
+            <ul class="submenu">
+              <li>
+                <%= link_to 'Core Curriculum', core_materials_path %>
+              </li>
+              <li>
+                <%= link_to 'Add New Curriculum', new_material_path %>
+              </li>
+              <li>
+                <%= link_to 'All Curriculum', materials_path %>
+              </li>
+            </ul>
+          </li>
         <% else %>
           <li class="nav-link">
             <%= link_to 'Log In', new_sessions_path %>
@@ -18,23 +43,7 @@
             <%= link_to 'Sign Up', new_user_path %>
           </li>
         <% end %>
-        <% if is_admin? %>
-          <li class="nav-link">
-            <%= link_to 'My Reviews', user_reviews_path(@current_user) %>
-          </li>
-        <% end %>
 
-        <li class="nav-link more"><a href="javascript:void(0)">Curriculum</a>
-          <ul class="submenu">
-            <li>
-              <%= link_to 'Add New Curriculum', new_material_path %>
-            </li>
-
-            <li>
-              <%= link_to 'Curriculum List', materials_path %>
-            </li>
-          </ul>
-        </li>
       </ul>
     </div>
   </div>
