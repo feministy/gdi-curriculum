@@ -10,22 +10,22 @@
     = f.label :title
     = f.text_field :title
   .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .field
-    = f.label :url
+    = f.label :url, 'URL'
+    %em Note: Must provide access to slides, homework and exercises (if applicable), the source code, and list of author(s).
     = f.text_field :url
   .field
     = f.label :chapter
-    = f.text_field :chapter
+    = f.select :chapter, Chapters.for_select
+  - unless @material.new_record?
+    .field
+      = f.label :status
+      = f.select :status, Statuses.for_select
   .field
-    = f.label :status
-    = f.text_field :status
+    = f.label :description, 'Brief Description'
+    %em Note: This is not the description the course for Meetup. Use this field to explain the course contents if the title is not detailed enough.
+    = f.text_area :description
   .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :language
-    = f.text_field :language
+    = f.label :language, 'Language or Topic'
+    = f.select :language, Languages.for_select
   .actions
     = f.submit 'Save'
