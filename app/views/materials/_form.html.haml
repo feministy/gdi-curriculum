@@ -21,6 +21,10 @@
       = f.label :status
       = f.select :status, Statuses.for_select
   .field
+    = f.label :duration
+    %em A range is acceptable.
+    = f.text_field :duration
+  .field
     = f.label :description, 'Brief Description'
     %em Note: This is not the description the course for Meetup. Use this field to explain the course contents if the title is not detailed enough.
     = f.text_area :description
