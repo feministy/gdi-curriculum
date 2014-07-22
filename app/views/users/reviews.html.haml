@@ -1,0 +1,29 @@
+%h1 #{@user.name}'s Reviews
+
+.thick-border
+
+- @reviews.each do |review|
+  %h2
+    Review for:
+    = review.material.title
+  %br
+
+  %p
+    Submitted by
+    = review.material.user.name
+    from
+    = review.material.chapter
+
+  %p= link_to 'View materials online', review.material.url
+
+  %p
+    %b Language:
+    = review.material.language
+
+  %p
+    %b Status:
+    = review.material.status
+
+  %br
+
+  = render partial: 'shared/comment', locals: { review: review }
