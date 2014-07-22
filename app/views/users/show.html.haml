@@ -1,4 +1,6 @@
-%h1 Profile
+%h1 #{@user.name}'s Profile
+
+%br
 
 %p
   %b Email:
@@ -6,4 +8,58 @@
 %p
   %b Role:
   = @user.role
+%p
+  = link_to 'Edit profile', edit_user_path(@user)
+
+- if @user.admin?
+  %br
+  %h2 Reviews
+
+  %table.table-minimal.tablesorter#myReviews
+    %thead
+      %tr
+        %th Materials
+        %th Owner
+        %th Rating
+        %th Date (YYYY-MM-DD)
+
+    %tbody
+      - @reviews.each do |review|
+        %tr
+          %td
+            = review.material.title
+            %br
+            = link_to 'Review', material_review_path(review.material, review)
+            |
+            = link_to 'Materials', material_path(review.material)
+          %td
+            = review.material.user.name
+            from
+            = review.material.chapter
+          %td= review.recommendation
+          %td= year_month_day(review.created_at)
+
+%br
+%h2 Materials
+%table.table-minimal.tablesorter#myMaterials
+  %thead
+    %tr
+      %th Materials
+      %th Edit
+      %th Status
+      %th Date (YYYY-MM-DD)
+
+  %tbody
+    - @materials.each do |material|
+      %tr
+        %td
+          = link_to material.title, material_path(material)
+        %td
+          - if owner_can_edit?(material)
+            = link_to 'Edit', edit_material_path(material)
+          - else
+            %em Review in progress
+        %td= material.status
+        %td= year_month_day(material.created_at)
+
 
