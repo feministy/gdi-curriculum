@@ -35,6 +35,9 @@
               </li>
             </ul>
           </li>
+          <li class="nav-link">
+            <%= link_to 'Log Out', sessions_path, method: :delete %>
+          </li>
         <% else %>
           <li class="nav-link">
             <%= link_to 'Log In', new_sessions_path %>
