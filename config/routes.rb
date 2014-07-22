@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'materials#core'
 
   resources :materials do
-    resources :reviews
+    resources :reviews, except: [:index]
   end
 
 

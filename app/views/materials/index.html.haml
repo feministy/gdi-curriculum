@@ -24,7 +24,7 @@
           - if can_review?(material)
             = link_to 'Review', new_material_review_path(material)
           - elsif reviewed_by?(current_user, material)
-            = link_to 'View review', material_review_path(material, user_review_for(material))
+            = link_to 'View my review', material_review_path(material, user_review_for(material))
 
 
 %br
