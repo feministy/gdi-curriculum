@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :check_user, except: [:new, :create]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :reviews]
 
   # GET /users
   # GET /users.json
@@ -11,6 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @reviews = @user.reviews.includes(:material)
+    @materials = @user.materials
   end
 
   # GET /users/new
@@ -65,6 +67,7 @@ class UsersController < ApplicationController
   end
 
   def reviews
+    @reviews = Review.where(user: @user).includes(:material)
   end
 
   private
@@ -75,6 +78,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password_digest, :role)
+      params.require(:user).permit(:email, :password_digest, :name)
     end
 end
