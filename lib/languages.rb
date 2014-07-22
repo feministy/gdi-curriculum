@@ -7,7 +7,7 @@ module Languages
       "Rails",
       "HTML/CSS",
       "JavaScript",
-      "PHP/MySQL/WordPress",
+      "PHP / MySQL / WordPress",
       "Fundamentals",
       "User Experience",
       "Design",

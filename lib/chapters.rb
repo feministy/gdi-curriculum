@@ -28,6 +28,7 @@ module Chapters
       "Salt Lake City",
       "San Francisco",
       "Seattle",
+      "Sydney",
       "Toledo",
       "Tri-Cities"
     ]
