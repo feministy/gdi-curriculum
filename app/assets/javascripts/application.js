@@ -45,6 +45,9 @@ var ready = (function() {
       }
     }
   });
+
+  $('#myReviews').tablesorter();
+  $('#myMaterials').tablesorter();
 });
 
 $(document).ready(ready);
